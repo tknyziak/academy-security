@@ -16,7 +16,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 @NamedQueries({
-		@NamedQuery(name ="Users.findAll", query = "SELECT u FROM User u")
+		@NamedQuery(name = "Users.findAll", query = "SELECT u FROM User u"),
+		@NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM User u JOIN FETCH u.roles WHERE u.username = :username")
 })
 public class User {
 
